@@ -1,0 +1,49 @@
+#nest-messages_phone {
+    border-color: #d9d9d9;
+    border-radius: 6px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.88);
+    font-size: 20px;
+    line-height: 1.5714285714285714;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    background-color: #ffffff;
+    background-image: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d9d9d9;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+#nest-messages_phone:hover {
+    border-color: #4096ff;
+    border-inline-end-width: 1px;
+}
+
+#nest-messages_phone:focus {
+    border-color: #4096ff;
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    border-inline-end-width: 1px;
+    outline: 0;
+}
+
+.ant-card {
+    margin: auto 20%;
+}
+
+#submit_button {
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .ant-card {
+        margin: 0px;
+    }
+}
