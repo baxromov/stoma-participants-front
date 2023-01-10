@@ -1,18 +1,22 @@
 
 import CreateForm from "./components/CreateForm";
 import { Card } from 'antd';
-import { Watermark } from 'antd';
+import { Typography } from 'antd';
+import {
+  InstagramOutlined
+} from '@ant-design/icons';
+const { Text } = Typography;
 function App() {
 
   return (
     <>
-      <Watermark content={['Micron Lab', 'Good Luck!!!']}>
-        <h1 style={{ textAlign: 'center', color: '#fff' }}>MicronLab</h1>
-        <div style={{ height: 50 }} />
         <Card id="wrapper">
+        <h1 style={{ textAlign: 'center', color: '#afc2db' }}>MicronLab</h1>
+          <h4 style={{color: "#fc0339", textAlign: 'center'}}><strong>В процессе регистрации вы должны быть подписаны на нашу страницу в Instagram.</strong></h4>
+          <h1 style={{textAlign:'center'}}><a href="#"><InstagramOutlined/></a></h1>
           <CreateForm />
         </Card>
-      </Watermark>
+
 
     </>
   );

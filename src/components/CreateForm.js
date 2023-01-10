@@ -1,5 +1,5 @@
 import './CreateForm.css';
-import { Button, Form, Input, Select, message } from 'antd';
+import { Button, Form, Input, Select, message, Tag } from 'antd';
 import { React, useMemo, useState } from 'react';
 import countryList from 'react-select-country-list';
 import 'react-phone-number-input/style.css';
@@ -71,7 +71,7 @@ function CreateForm() {
                 newLoadings[index] = false;
                 return newLoadings;
             });
-        }, 6000);
+        }, 10000);
     };
     return (
         <Form {...layout}
@@ -150,12 +150,12 @@ function CreateForm() {
             >
                 <Input />
             </Form.Item>
-
+            
             <Form.Item
                 name="instagram_username"
                 label="Instagram Username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
-            >
+            >   
                 <Input prefix={<InstagramOutlined />} placeholder="Username" />
             </Form.Item>
 
