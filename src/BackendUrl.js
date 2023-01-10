@@ -1,3 +1,3 @@
-const BackendUrl = 'http://localhost:8000/'
+const BackendUrl = 'http://backend:8000/'
 
 export default BackendUrl;
