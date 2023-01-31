@@ -1,5 +1,5 @@
 import './CreateForm.css';
-import { Button, Form, Input, Select, message, Tag } from 'antd';
+import { Button, Form, Input, Select, message, Upload } from 'antd';
 import { React, useMemo, useState } from 'react';
 import countryList from 'react-select-country-list';
 import 'react-phone-number-input/style.css';
@@ -8,9 +8,8 @@ import axios from 'axios';
 import BackendUrl from '../BackendUrl';
 import {
     InstagramOutlined
-  } from '@ant-design/icons';
-
-
+} from '@ant-design/icons';
+import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
 const layout = {
     labelCol: {
         span: 8,
@@ -29,7 +28,14 @@ const validateMessages = {
         range: '${label} must be between ${min} and ${max}',
     },
 };
-
+const normFile = (e) => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e?.fileList;
+  };
+const attachmentsUrl ='http://46.101.206.119:8000/attachments/'
 
 function CreateForm() {
     const onFinish = (values) => {
@@ -80,7 +86,7 @@ function CreateForm() {
             validateMessages={validateMessages}
             onFinishFailed={onFinishFailed}
             size='large'
-            >
+        >
             <Form.Item
                 name='first_name'
                 label="Имя"
@@ -150,15 +156,25 @@ function CreateForm() {
             >
                 <Input />
             </Form.Item>
-            
+
             <Form.Item
                 name="instagram_username"
                 label="Instagram Username"
                 rules={[{ required: true, message: 'Please input your username!' }]}
-            >   
+            >
                 <Input prefix={<InstagramOutlined />} placeholder="Username" />
             </Form.Item>
-
+            <Form.Item label="Паспорт">
+                <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                    <Upload.Dragger name="file" action={attachmentsUrl}>
+                        <p className="ant-upload-drag-icon">
+                            <InboxOutlined />
+                        </p>
+                        <p className="ant-upload-text">Нажмите или перетащите файл в эту область, чтобы загрузить</p>
+                        <p className="ant-upload-hint">Поддержка одиночной или массовой загрузки.</p>
+                    </Upload.Dragger>
+                </Form.Item>
+            </Form.Item>
 
             <Form.Item
                 wrapperCol={{
@@ -170,6 +186,7 @@ function CreateForm() {
                     Следующий
                 </Button>
             </Form.Item>
+            
         </Form>
     );
 }
