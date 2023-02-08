@@ -37,8 +37,8 @@ const normFile = (e) => {
     
     return e?.fileList;
   };
-// const attachmentsUrl ='http://46.101.206.119:8000/attachments/'
-const attachmentsUrl ='http://127.0.0.1:8000/attachments/'
+const attachmentsUrl ='http://46.101.206.119:8000/file/attachments/'
+// const attachmentsUrl ='http://127.0.0.1:8000/attachments/'
 
 function uuidv4() {
     return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
