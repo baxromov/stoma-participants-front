@@ -1,5 +1,5 @@
 import './CreateForm.css';
-import { Button, Form, Input, Select, message, Upload } from 'antd';
+import { Button, Form, Input, Select, message, Upload, Typography } from 'antd';
 import { React, useMemo, useState } from 'react';
 import countryList from 'react-select-country-list';
 import 'react-phone-number-input/style.css';
@@ -31,12 +31,20 @@ const validateMessages = {
 const normFile = (e) => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
+        
       return e;
     }
+    
     return e?.fileList;
   };
-const attachmentsUrl ='http://46.101.206.119:8000/attachments/'
+// const attachmentsUrl ='http://46.101.206.119:8000/attachments/'
+const attachmentsUrl ='http://127.0.0.1:8000/attachments/'
 
+function uuidv4() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+  }
 function CreateForm() {
     const onFinish = (values) => {
         console.log(values);
@@ -87,6 +95,7 @@ function CreateForm() {
             onFinishFailed={onFinishFailed}
             size='large'
         >
+            
             <Form.Item
                 name='first_name'
                 label="Имя"
@@ -175,7 +184,7 @@ function CreateForm() {
                     </Upload.Dragger>
                 </Form.Item>
             </Form.Item>
-
+  
             <Form.Item
                 wrapperCol={{
                     ...layout.wrapperCol,
